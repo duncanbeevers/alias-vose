@@ -1,0 +1,4 @@
+# [No Main] (js:No output)
+-main Runner
+-js Runner.js
+-D noEmbedJS
