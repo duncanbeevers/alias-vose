@@ -1,0 +1,1 @@
+A [Haxe](haxe.org) implementation of [Dr. Michael Vose's Alias method](http://web.eecs.utk.edu/~vose/Publications/random.pdf) for generating random numbers fitting a specified distribution.
