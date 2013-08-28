@@ -1,0 +1,28 @@
+{
+  "name": "AliasVose",
+  "version": "0.0.0",
+  "description": "Haxe implementation and demonstration of Michael Vose's variation on Alias tables for generating random numbers with an arbitrary distribution",
+  "main": "Runner.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.9",
+    "grunt-haxe": "~0.1.0",
+    "async": "~0.2.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/duncanbeevers/alias-vose.git"
+  },
+  "keywords": [
+    "random"
+  ],
+  "author": "Duncan Beevers",
+  "license": "DWTFPL",
+  "bugs": {
+    "url": "https://github.com/duncanbeevers/alias-vose/issues"
+  }
+}
