@@ -1,3 +1,7 @@
+// Node modules we'll use elsewhere
+var exec = require('child_process').exec;
+var async = require('async');
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -20,27 +24,32 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-haxe');
 
+  // Haxe does all the building
   grunt.registerTask('build', [ 'haxe' ]);
 
+  // Run the Haxe-built compiles serially,
+  // logging their output via Grunt
   grunt.registerTask('run', 'Run the various Alias Vose builds', function() {
-    var done = this.async(),
-        exec = require('child_process').exec,
-        async = require('async');
+    var done = this.async();
 
     function run(command, fn) {
       var childProcess = exec(command);
+
+      // Log output data from child process
       childProcess.stdout.on("data", function(data) {
-        console.log(data);
+        grunt.log.write(data);
       });
+
+      // Inform async this job is complete
       childProcess.on("exit", fn);
     };
 
     async.eachSeries([
-      "node build/js/Runner.js",
-      "php build/php/Runner.php/index.php"
+      'node build/js/Runner.js',
+      'php build/php/Runner.php/index.php'
     ], run, done);
   });
 
-  grunt.registerTask('default', [ 'build' ]);
+  grunt.registerTask('default', [ 'build', 'run' ]);
 
 };
